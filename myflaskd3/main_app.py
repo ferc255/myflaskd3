@@ -11,5 +11,4 @@ def sample_view():
     Sample view.
     """
 
-    
     return 'hello world!'
