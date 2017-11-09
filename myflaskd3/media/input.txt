@@ -1,0 +1,15 @@
+7
+Computer_A1 Host
+Computer_A2 Host
+Switch_1 Switch
+Router_1 Router
+Switch_2 Switch
+Computer_B1 Host
+Computer_B2 Host
+6
+Computer_A1 Switch_1 Straight
+Computer_A2 Switch_1 Straight
+Switch_1 Router_1 Straight
+Computer_B1 Switch_2 Straight
+Computer_B2 Switch_2 Straight
+Switch_2 Router_1 Straight
