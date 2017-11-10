@@ -27,6 +27,14 @@ SOME_JSON = {
         {"name": "Computer_C3", "kind": "Host"},
         {"name": "Switch_3", "kind": "Switch"},
         {"name": "Router_3", "kind": "Router"},
+
+        {"name": "Computer_D1", "kind": "Host"},
+        {"name": "Computer_D2", "kind": "Host"},
+        {"name": "Switch_4", "kind": "Switch"},
+        {"name": "Router_4", "kind": "Router"},
+        {"name": "Computer_E1", "kind": "Host"},
+        {"name": "Computer_E2", "kind": "Host"},
+        {"name": "Switch_5", "kind": "Switch"},
     ],
     "links": [
         {"source": "Computer_A1", "target": "Switch_1", "wire": "Straight"},
@@ -45,6 +53,13 @@ SOME_JSON = {
         {"source": "Router_1", "target": "Router_2", "wire": "Crossover"},
         {"source": "Router_1", "target": "Router_3", "wire": "Crossover"},
         {"source": "Router_2", "target": "Router_3", "wire": "Crossover"},
+
+        {"source": "Computer_D1", "target": "Switch_4", "wire": "Straight"},
+        {"source": "Computer_D2", "target": "Switch_4", "wire": "Straight"},
+        {"source": "Switch_4", "target": "Router_4", "wire": "Straight"},
+        {"source": "Computer_E1", "target": "Switch_5", "wire": "Straight"},
+        {"source": "Computer_E2", "target": "Switch_5", "wire": "Straight"},
+        {"source": "Switch_5", "target": "Router_4", "wire": "Straight"},
     ],
 }
 
