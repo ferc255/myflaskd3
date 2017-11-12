@@ -23,13 +23,13 @@ svg
     width: 200px;
     top: 50px;
     text-align: center;
-    border-radius: 20px;
     overflow: hidden;
+    overflow-y: auto;
 }
 
 .menu_elem
 {
-    //border-radius: 20px;
+    border-radius: 10px;
     background-color: #0F9BFF;
     padding: 0.5em;
     border: 1px solid white;

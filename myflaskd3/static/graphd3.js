@@ -6,9 +6,10 @@ var svg = d3.select('svg')
     .attr('width', window.innerWidth)
     .attr('height', window.innerHeight);
 
-
 var width = +svg.attr('width');
 var height = +svg.attr('height');
+
+var vertices, links, labels, menu, graph_box;
 
 var simulation = d3.forceSimulation()
     .force('link', d3.forceLink().id(function(d) { return d.name; })
@@ -17,7 +18,7 @@ var simulation = d3.forceSimulation()
     .force('charge', d3.forceManyBody().strength(-80))
     .force('center', d3.forceCenter(width / 2, height / 2));
 
-var vertices, links, labels, graph_list, menu;
+start_app();
 
 
 function bound(val, type)
@@ -34,6 +35,7 @@ function bound(val, type)
     
     return val;
 }
+
 
 function ticked()
 {
@@ -90,15 +92,20 @@ window.addEventListener('resize', function()
     svg.attr('width', window.innerWidth);
     height = +svg.attr('height');
     width = +svg.attr('width');
+    
     simulation
         .force('center', d3.forceCenter(width / 2, height / 2));
     simulation.alpha(1).restart();
+
+    graph_box
+        .style('left', width / 2 - MENU_WIDTH / 2 + "px")
+        .style('height', height - 50 * 2 + "px");
 });
 
 
 function visualize(graph)
 {
-    graph_list.remove();
+    graph_box.remove();
 
     links = svg.append('g')
         .attr('class', 'links')
@@ -108,56 +115,51 @@ function visualize(graph)
         .attr('stroke-width', function(d) { return 5; })
         .attr('stroke', 'black')
         .attr('stroke-dasharray', function(d)
-              {
-                  if (d.wire == 'Straight')
-                  {
-                      return '0';
-                  }
-                  else if (d.wire == 'Crossover')
-                  {
-                      return '15, 5';
-                  }
-              });
+        {
+            if (d.wire == 'Straight')
+            {
+                return '0';
+            }
+            else if (d.wire == 'Crossover')
+            {
+                return '15, 5';
+            }
+        });
 
     nodes = svg.append('g')
         .attr('class', 'nodes')
-        .selectAll('g')
-        .data(graph.nodes)
-        .enter()//.append('g');
-
     
-    labels = nodes.append('text')
+    labels = nodes.selectAll('text').data(graph.nodes).enter().append('text')
         .text(function(d)
-              {
-                  return d.name;
-              })
+        {
+            return d.name;
+        })
         .attr('stroke-width', 0.3)
         .attr('stroke', 'black')
         .attr('fill', '#EB5900');
     
-    vertices = nodes.append('image')
+    vertices = nodes.selectAll('image').data(graph.nodes).enter().append('image')
         .attr('height', IMAGE_SIZE + 'px')
         .attr('width', IMAGE_SIZE + 'px')
         .attr('href', function(d)
-              {
-                  if (d.kind == 'Host')
-                  {
-                      return 'media/computer.png';
-                  }
-                  else if (d.kind == 'Switch')
-                  {
-                      return 'media/switch.png';
-                  }
-                  else if (d.kind == 'Router')
-                  {
-                      return 'media/router.png'
-                  }
-              })
+        {
+            if (d.kind == 'Host')
+            {
+                return 'media/computer.png';
+            }
+            else if (d.kind == 'Switch')
+            {
+                return 'media/switch.png';
+            }
+            else if (d.kind == 'Router')
+            {
+                return 'media/router.png'
+            }
+        })
         .call(d3.drag()
               .on('start', dragstarted)
               .on('drag', dragged)
               .on('end', dragended));
-
 
     menu = d3.select('body').append('img')
         .attr('id', 'menu')
@@ -168,13 +170,14 @@ function visualize(graph)
         .attr('src', '/media/menu.png')
         .on('click', start_app)
 
-
     simulation
         .nodes(graph.nodes)
         .on('tick', ticked)
 
     simulation.force('link')
         .links(graph.links);
+
+    simulation.alpha(1).restart();
 }
 
 
@@ -187,7 +190,6 @@ function get_graph(address)
     .done(function(res)
     {
         visualize(res);
-        //console.log(res);
     });
 }
 
@@ -196,8 +198,6 @@ function start_app()
 {
     try
     {
-        vertices.remove();
-        labels.remove();
         nodes.remove();
         links.remove();
         menu.remove();
@@ -210,9 +210,12 @@ function start_app()
     })
     .done(function(res)
     {
-        graph_list = d3.select('body').append('div')
+        graph_box = d3.select('body').append('div')
             .attr('id', 'divmenu')
-            .style('left', width / 2 - MENU_WIDTH / 2 + "px")
+            .style('left', width / 2 - MENU_WIDTH / 2 + 'px')
+            .style('height', height - 50 * 2 + 'px');
+        
+        var graph_list = graph_box
             .selectAll('div')
             .data(res['graphs'])
             .enter().append('div')
@@ -221,8 +224,6 @@ function start_app()
             {
                 return get_graph(d);
             })
-            .text(function(d){return d;});
+            .text(function(d) { return d; });
     });
 }
-
-start_app();

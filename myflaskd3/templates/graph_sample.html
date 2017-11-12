@@ -7,7 +7,6 @@
     <link rel="stylesheet" type="text/css"
           href="{{ url_for('static', filename='graphd3.css') }}">
   </head>
-  
   <body>
     <svg></svg>
   </body>
@@ -17,8 +16,5 @@
        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
        crossorigin="anonymous"></script>
   <script src="https://d3js.org/d3.v4.min.js"></script>
-  <script>
-    var myjson = '{{ myjson2|safe }}';
-  </script>
   <script type="text/javascript" src="{{ url_for('static', filename='graphd3.js') }}"> </script>
 </html>
