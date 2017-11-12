@@ -7,3 +7,40 @@ svg
 {
     background-color: #DDFFDD;
 }
+
+#menu
+{
+    position: absolute;
+    top: 2em;
+    left: 2em;
+    cursor: pointer;
+}
+
+
+#divmenu
+{
+    position: absolute;
+    width: 200px;
+    top: 50px;
+    text-align: center;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.menu_elem
+{
+    //border-radius: 20px;
+    background-color: #0F9BFF;
+    padding: 0.5em;
+    border: 1px solid white;
+    color: white;
+    font: 20px Arial;
+}
+
+.menu_elem:hover
+{
+    cursor: pointer;
+    color: red;
+    border: 1px solid white;
+}
+                   
