@@ -181,11 +181,14 @@ function visualize(graph)
 }
 
 
-function get_graph(address)
+function get_graph(name)
 {
     $.ajax(
     {
-        url: '/graph/' + address,
+        url: '/graph',
+        type: 'POST',
+        data: JSON.stringify({'name': name}),
+        contentType: 'application/json',
     })
     .done(function(res)
     {
@@ -203,10 +206,11 @@ function start_app()
         menu.remove();
     }
     catch (TypeError){}
-    
+
     $.ajax(
     {
         url: '/graph',
+        contentType: "text/html",
     })
     .done(function(res)
     {
