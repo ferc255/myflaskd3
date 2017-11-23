@@ -214,6 +214,7 @@ function start_app()
     })
     .done(function(res)
     {
+        console.log(res);
         graph_box = d3.select('body').append('div')
             .attr('id', 'divmenu')
             .style('left', width / 2 - MENU_WIDTH / 2 + 'px')

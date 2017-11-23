@@ -2,9 +2,9 @@
 Auxiliary script which helps to fill database with some samples.
 """
 
-import os
 import json
 import sqlite3
+
 
 SOME_JSONS = [
     {
@@ -72,7 +72,7 @@ SOME_JSONS = [
             {"name": "Computer_C2", "kind": "Host"},
             {"name": "Switch_3", "kind": "Switch"},
 
-        {"name": "Computer_D1", "kind": "Host"},
+            {"name": "Computer_D1", "kind": "Host"},
             {"name": "Computer_D2", "kind": "Host"},
             {"name": "Computer_D3", "kind": "Host"},
             {"name": "Computer_D4", "kind": "Host"},
@@ -126,13 +126,13 @@ SOME_JSONS = [
             {"name": "Computer_B2", "kind": "Host"},
             {"name": "Switch_2", "kind": "Switch"},
 
-        {"name": "Computer_C1", "kind": "Host"},
+            {"name": "Computer_C1", "kind": "Host"},
             {"name": "Computer_C2", "kind": "Host"},
             {"name": "Computer_C3", "kind": "Host"},
             {"name": "Computer_C4", "kind": "Host"},
             {"name": "Computer_C5", "kind": "Host"},
 
-        {"name": "Computer_D1", "kind": "Host"},
+            {"name": "Computer_D1", "kind": "Host"},
             {"name": "Computer_D2", "kind": "Host"},
             {"name": "Computer_D3", "kind": "Host"},
             {"name": "Computer_D4", "kind": "Host"},
@@ -151,7 +151,7 @@ SOME_JSONS = [
              "wire": "Straight"},
             {"source": "Switch_2", "target": "Router_1",
              "wire": "Straight"},
-            
+
             {"source": "Computer_C1", "target": "Computer_C2",
              "wire": "Crossover"},
             {"source": "Computer_C2", "target": "Computer_C3",
@@ -176,22 +176,30 @@ SOME_JSONS = [
 ]
 
 
-if __name__ == '__main__':
-    dbase = sqlite3.connect('../database.db')
+def main():
+    """
+    First, creates table Graph. If it's been created then drops it.
+    Afterwards this function fills table Graph with SOME_JSONS.
+    """
+
+    dbase = sqlite3.connect('database.db')
     with dbase:
         cursor = dbase.cursor()
         try:
             cursor.execute("DROP TABLE Graph;")
         except sqlite3.OperationalError:
             pass
-        
+
         try:
             cursor.execute("CREATE TABLE Graph (name TEXT, json TEXT);")
         except sqlite3.OperationalError:
             pass
-   
 
         for i, item in enumerate(SOME_JSONS):
             cursor.execute("insert into Graph (name, json) values"
                            "(?, ?);",
                            ('example_' + str(i + 1), json.dumps(item)))
+
+
+if __name__ == '__main__':
+    main()
