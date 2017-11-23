@@ -10,7 +10,7 @@ APP = Flask(__name__)
 
 def main():
     """
-    The main function which run server.
+    The main function which runs server.
     """
 
     APP.register_blueprint(GRAPH_BP)
