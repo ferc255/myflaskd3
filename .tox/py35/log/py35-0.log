@@ -1,0 +1,10 @@
+actionid: py35
+msg: getenv
+cmdargs: ['/home/aleksey/development/restpython/myflaskd3/venv/bin/python3', '-m', 'virtualenv', '--python', '/home/aleksey/development/restpython/myflaskd3/venv/bin/python3.5', 'py35']
+
+Using real prefix '/usr'
+Path not in prefix '/home/aleksey/development/restpython/myflaskd3/venv/include/python3.5m' '/usr'
+New python executable in /home/aleksey/development/restpython/myflaskd3/.tox/py35/bin/python3.5
+Also creating executable in /home/aleksey/development/restpython/myflaskd3/.tox/py35/bin/python
+Installing setuptools, pip, wheel...done.
+Running virtualenv with interpreter /home/aleksey/development/restpython/myflaskd3/venv/bin/python3.5

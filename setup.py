@@ -14,5 +14,11 @@ setup(
     ],
     entry_points={
         'console_scripts': ['myflaskd3_server=myflaskd3.__init__:main'],
-    }
+    },
+    setup_requires=[
+        'pytest-runner',
+    ],
+    tests_require=[
+        'pytest',
+    ],
 )

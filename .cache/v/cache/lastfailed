@@ -1,0 +1,3 @@
+{
+  "tests/test_myflaskd3.py::FlaskrTestCase::test_empty": true
+}

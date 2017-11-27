@@ -1,0 +1,48 @@
+actionid: tox
+msg: packaging
+cmdargs: ['/home/aleksey/development/restpython/myflaskd3/venv/bin/python3', local('/home/aleksey/development/restpython/myflaskd3/setup.py'), 'sdist', '--formats=zip', '--dist-dir', local('/home/aleksey/development/restpython/myflaskd3/.tox/dist')]
+
+running sdist
+running egg_info
+writing dependency_links to myflaskd3.egg-info/dependency_links.txt
+writing top-level names to myflaskd3.egg-info/top_level.txt
+writing myflaskd3.egg-info/PKG-INFO
+writing requirements to myflaskd3.egg-info/requires.txt
+writing entry points to myflaskd3.egg-info/entry_points.txt
+reading manifest file 'myflaskd3.egg-info/SOURCES.txt'
+writing manifest file 'myflaskd3.egg-info/SOURCES.txt'
+running check
+warning: check: missing required meta-data: url
+
+warning: check: missing meta-data: either (author and author_email) or (maintainer and maintainer_email) must be supplied
+
+creating myflaskd3-0.0.0
+creating myflaskd3-0.0.0/myflaskd3
+creating myflaskd3-0.0.0/myflaskd3.egg-info
+copying files to myflaskd3-0.0.0...
+copying README.md -> myflaskd3-0.0.0
+copying setup.cfg -> myflaskd3-0.0.0
+copying setup.py -> myflaskd3-0.0.0
+copying myflaskd3/__init__.py -> myflaskd3-0.0.0/myflaskd3
+copying myflaskd3/graph_bp.py -> myflaskd3-0.0.0/myflaskd3
+copying myflaskd3.egg-info/PKG-INFO -> myflaskd3-0.0.0/myflaskd3.egg-info
+copying myflaskd3.egg-info/SOURCES.txt -> myflaskd3-0.0.0/myflaskd3.egg-info
+copying myflaskd3.egg-info/dependency_links.txt -> myflaskd3-0.0.0/myflaskd3.egg-info
+copying myflaskd3.egg-info/entry_points.txt -> myflaskd3-0.0.0/myflaskd3.egg-info
+copying myflaskd3.egg-info/requires.txt -> myflaskd3-0.0.0/myflaskd3.egg-info
+copying myflaskd3.egg-info/top_level.txt -> myflaskd3-0.0.0/myflaskd3.egg-info
+Writing myflaskd3-0.0.0/setup.cfg
+creating '.tox/dist/myflaskd3-0.0.0.zip' and adding 'myflaskd3-0.0.0' to it
+adding 'myflaskd3-0.0.0/setup.py'
+adding 'myflaskd3-0.0.0/README.md'
+adding 'myflaskd3-0.0.0/PKG-INFO'
+adding 'myflaskd3-0.0.0/setup.cfg'
+adding 'myflaskd3-0.0.0/myflaskd3.egg-info/SOURCES.txt'
+adding 'myflaskd3-0.0.0/myflaskd3.egg-info/PKG-INFO'
+adding 'myflaskd3-0.0.0/myflaskd3.egg-info/entry_points.txt'
+adding 'myflaskd3-0.0.0/myflaskd3.egg-info/top_level.txt'
+adding 'myflaskd3-0.0.0/myflaskd3.egg-info/requires.txt'
+adding 'myflaskd3-0.0.0/myflaskd3.egg-info/dependency_links.txt'
+adding 'myflaskd3-0.0.0/myflaskd3/graph_bp.py'
+adding 'myflaskd3-0.0.0/myflaskd3/__init__.py'
+removing 'myflaskd3-0.0.0' (and everything under it)
