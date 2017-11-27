@@ -9,14 +9,14 @@ Collecting Jinja2>=2.4 (from flask->myflaskd3==0.0.0)
   Using cached Jinja2-2.10-py2.py3-none-any.whl
 Collecting Werkzeug>=0.7 (from flask->myflaskd3==0.0.0)
   Using cached Werkzeug-0.12.2-py2.py3-none-any.whl
+Collecting itsdangerous>=0.21 (from flask->myflaskd3==0.0.0)
 Collecting click>=2.0 (from flask->myflaskd3==0.0.0)
   Using cached click-6.7-py2.py3-none-any.whl
-Collecting itsdangerous>=0.21 (from flask->myflaskd3==0.0.0)
 Collecting MarkupSafe>=0.23 (from Jinja2>=2.4->flask->myflaskd3==0.0.0)
 Building wheels for collected packages: myflaskd3
   Running setup.py bdist_wheel for myflaskd3: started
   Running setup.py bdist_wheel for myflaskd3: finished with status 'done'
   Stored in directory: /home/aleksey/.cache/pip/wheels/8f/91/34/98884d8ac8a803dcf32333a9d9b9d1c90cadc367571a8bea40
 Successfully built myflaskd3
-Installing collected packages: MarkupSafe, Jinja2, Werkzeug, click, itsdangerous, flask, myflaskd3
+Installing collected packages: MarkupSafe, Jinja2, Werkzeug, itsdangerous, click, flask, myflaskd3
 Successfully installed Jinja2-2.10 MarkupSafe-1.0 Werkzeug-0.12.2 click-6.7 flask-0.12.2 itsdangerous-0.24 myflaskd3-0.0.0

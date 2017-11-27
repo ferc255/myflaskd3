@@ -3,3 +3,6 @@ venv
 start_script.sh
 *.egg-info/
 database.db
+*.eggs
+*.tox
+*.cache
