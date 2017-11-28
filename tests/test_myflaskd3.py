@@ -15,6 +15,8 @@ class FlaskrTestCase(unittest.TestCase):
         '''
         Initialization
         '''
+
+        myflaskd3.register_blueprints()
         self.app = myflaskd3.APP.test_client()
 
     def tearDown(self):
